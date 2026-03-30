@@ -85,8 +85,8 @@ const MOCK_PEOPLE = [
 
 const TopBar = ({ title, onProfileClick, onNotificationClick }: { title: string; onProfileClick?: () => void; onNotificationClick?: () => void }) => (
   <header className="fixed top-0 w-full z-50 bg-surface/60 backdrop-blur-xl flex items-center justify-between px-6 py-4 shadow-[0_24px_48px_-12px_rgba(182,196,255,0.04)]">
-    <div className="flex items-center gap-4">
-      <h1 className="text-primary font-headline font-black text-2xl tracking-tighter uppercase">{title}</h1>
+    <div className="flex items-center gap-4 overflow-hidden">
+      <h1 className="text-primary font-headline font-black text-2xl tracking-tighter uppercase truncate">{title}</h1>
     </div>
     <div className="flex items-center gap-3">
       <button 
@@ -172,7 +172,7 @@ const BottomNav = ({ activeScreen, onNavigate }: { activeScreen: Screen; onNavig
   ];
 
   return (
-    <nav className="fixed bottom-0 left-1/2 -translate-x-1/2 w-full max-w-md flex justify-around items-center pt-4 pb-10 px-6 bg-surface/80 backdrop-blur-2xl rounded-t-[3rem] z-[1000] border-t border-white/5 shadow-[0_-20px_40px_rgba(0,0,0,0.3)]">
+    <nav className="fixed bottom-0 left-1/2 -translate-x-1/2 w-full max-w-md flex justify-around items-center pt-4 pb-12 px-6 bg-surface/80 backdrop-blur-2xl rounded-t-[3rem] z-[1000] border-t border-white/5 shadow-[0_-20px_40px_rgba(0,0,0,0.3)]">
       {navItems.map((item) => (
         <button
           key={item.id}
@@ -572,7 +572,7 @@ const HomeScreen = ({ onNavigate, setDestination, destination, onProfileClick, o
         </div>
 
         {/* Traffic Legend */}
-        <div className="absolute top-48 right-6 z-30 flex flex-col gap-2 items-end">
+        <div className="absolute bottom-6 left-6 z-30 flex flex-col gap-2 items-start">
           <div className="bg-surface-container-lowest/60 backdrop-blur-sm px-3 py-2 rounded-xl border border-outline-variant/5 flex flex-col gap-2">
             {[
               { label: 'Clear', color: 'bg-secondary' },
@@ -867,7 +867,7 @@ const RouteSelectionScreen = ({ onNavigate, destination, onProfileClick, onNotif
                 </div>
               )}
               <div className={cn(
-                "bg-surface-container-high p-6 rounded-[2rem] border-2 transition-all group-hover:scale-[1.01]",
+                "bg-surface-container-high p-5 rounded-[2rem] border-2 transition-all group-hover:scale-[1.01]",
                 selectedRouteId === route.id ? "border-primary shadow-xl ring-4 ring-primary/10" : "border-transparent"
               )}>
                 <div className="flex justify-between items-start mb-6">
@@ -940,7 +940,7 @@ const ReportScreen = ({ onNavigate, onProfileClick, onNotificationClick }: { onN
           <p className="text-on-surface-variant">Reporting near <span className="text-primary font-semibold">Kimironko Market</span></p>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
           {/* Traffic Jam - Large Card */}
           <button 
             onClick={() => handleReport('jam')}
@@ -1140,7 +1140,7 @@ const InsightsScreen = ({ onNavigate, onProfileClick, onNotificationClick }: { o
               </div>
             </div>
 
-            <div className="flex items-end gap-2 h-40 mb-6">
+            <div className="flex items-end gap-1 h-40 mb-6">
               {[0.3, 0.4, 0.6, 0.8, 1.0, 0.9, 0.7, 0.5, 0.4, 0.3, 0.2, 0.3].map((h, i) => (
                 <div key={i} className="flex-1 flex flex-col items-center gap-2 h-full">
                   <motion.div 
@@ -1334,7 +1334,7 @@ const NavigationScreen = ({ onNavigate }: { onNavigate: (s: Screen) => void }) =
       </div>
 
       {/* Speedometer Overlay */}
-      <div className="absolute top-32 left-6 z-50">
+      <div className="absolute top-44 left-6 z-50">
         <div className="bg-surface-container-high/80 backdrop-blur-xl p-4 rounded-3xl border border-primary/20 shadow-xl flex flex-col items-center">
           <span className="text-3xl font-black text-primary leading-none">{speed || Math.floor(Math.random() * 5 + 35)}</span>
           <span className="text-[10px] font-black uppercase tracking-widest text-on-surface-variant">km/h</span>
@@ -1342,10 +1342,10 @@ const NavigationScreen = ({ onNavigate }: { onNavigate: (s: Screen) => void }) =
       </div>
 
       {/* Nav Header */}
-      <div className="fixed top-0 w-full z-50 p-6">
-        <div className="bg-primary-container text-on-primary-container p-6 rounded-[2rem] shadow-2xl flex items-center gap-6">
-          <div className="bg-white/20 p-4 rounded-2xl">
-            <span className="material-symbols-outlined text-4xl">turn_right</span>
+      <div className="fixed top-0 w-full z-50 p-4">
+        <div className="bg-primary-container text-on-primary-container p-5 rounded-[2rem] shadow-2xl flex items-center gap-4">
+          <div className="bg-white/20 p-3 rounded-2xl">
+            <span className="material-symbols-outlined text-3xl">turn_right</span>
           </div>
           <div>
             <h2 className="font-headline text-3xl font-black">
@@ -1357,9 +1357,9 @@ const NavigationScreen = ({ onNavigate }: { onNavigate: (s: Screen) => void }) =
       </div>
 
       {/* Nav Bottom Sheet */}
-      <div className="fixed bottom-0 w-full z-50 p-6">
-        <div className="bg-surface-container-high/90 backdrop-blur-2xl p-8 rounded-[2.5rem] shadow-2xl border border-outline-variant/10">
-          <div className="flex justify-between items-end mb-8">
+      <div className="fixed bottom-0 w-full z-50 p-4">
+        <div className="bg-surface-container-high/90 backdrop-blur-2xl p-6 rounded-[2.5rem] shadow-2xl border border-outline-variant/10">
+          <div className="flex justify-between items-end mb-6">
             <div className="flex flex-col">
               <span className="font-headline text-4xl font-black text-primary">{remainingTime} <span className="text-lg font-medium">min</span></span>
               <span className="text-on-surface-variant text-sm font-label">{remainingDistance.toFixed(1)} km • {arrivalTimeStr} arrival</span>
