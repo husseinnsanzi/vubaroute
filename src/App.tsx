@@ -1032,7 +1032,7 @@ const SettingsScreen = ({ onNavigate, isDarkMode, onToggleTheme, onProfileClick,
               <span className="material-symbols-outlined text-sm material-symbols-fill">edit</span>
             </button>
           </div>
-          <h2 className="font-headline text-3xl font-black tracking-tight text-on-surface">John Doe</h2>
+          <h2 className="font-headline text-3xl font-black tracking-tight text-on-surface">Hussein</h2>
           <div className="flex items-center gap-2 mt-2">
             <span className="h-2 w-2 rounded-full bg-secondary animate-pulse" />
             <p className="text-on-surface-variant font-medium tracking-wide uppercase text-xs">Premium Member • Kigali</p>
