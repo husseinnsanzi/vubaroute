@@ -1,0 +1,17 @@
+{
+  "name": "Vuba Route",
+  "short_name": "Vuba",
+  "description": "Premium Mobility and Traffic Intelligence for Kigali",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0B1326",
+  "theme_color": "#B6C4FF",
+  "icons": [
+    {
+      "src": "/logo.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
