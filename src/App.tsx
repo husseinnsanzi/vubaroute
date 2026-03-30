@@ -172,12 +172,12 @@ const BottomNav = ({ activeScreen, onNavigate }: { activeScreen: Screen; onNavig
   ];
 
   return (
-    <nav className="fixed bottom-0 left-1/2 -translate-x-1/2 w-full max-w-md flex justify-around items-center pt-4 pb-12 px-6 bg-surface/80 backdrop-blur-2xl rounded-t-[3rem] z-[1000] border-t border-white/5 shadow-[0_-20px_40px_rgba(0,0,0,0.3)]">
+    <nav className="fixed bottom-0 left-1/2 -translate-x-1/2 w-full max-w-md flex justify-around items-center pt-3 pb-5 px-6 bg-surface/80 backdrop-blur-2xl rounded-t-[2rem] z-[1000] border-t border-white/5 shadow-[0_-20px_40px_rgba(0,0,0,0.3)]">
       {navItems.map((item) => (
         <button
           key={item.id}
           onClick={() => onNavigate(item.id as Screen)}
-          className="relative flex flex-col items-center justify-center px-4 py-2 transition-all active:scale-90"
+          className="relative flex flex-col items-center justify-center px-3 py-1 transition-all active:scale-90"
         >
           {activeScreen === item.id && (
             <motion.div 
@@ -186,13 +186,13 @@ const BottomNav = ({ activeScreen, onNavigate }: { activeScreen: Screen; onNavig
             />
           )}
           <span className={cn(
-            "material-symbols-outlined text-2xl mb-1 transition-colors duration-300",
+            "material-symbols-outlined text-xl mb-0.5 transition-colors duration-300",
             activeScreen === item.id ? "text-primary material-symbols-fill" : "text-on-surface-variant/40"
           )}>
             {item.icon}
           </span>
           <span className={cn(
-            "font-body font-bold text-[10px] uppercase tracking-widest transition-colors duration-300",
+            "font-body font-bold text-[9px] uppercase tracking-widest transition-colors duration-300",
             activeScreen === item.id ? "text-primary" : "text-on-surface-variant/40"
           )}>
             {item.label}
@@ -561,13 +561,13 @@ const HomeScreen = ({ onNavigate, setDestination, destination, onProfileClick, o
         </div>
 
         {/* Map Controls */}
-        <div className="absolute bottom-6 right-6 z-40 flex flex-col gap-4 items-end">
+        <div className="absolute bottom-20 right-6 z-40 flex flex-col gap-4 items-end">
           <button 
             onClick={() => onNavigate('report')}
-            className="flex items-center gap-3 bg-gradient-to-br from-primary to-primary-container text-on-primary px-6 py-4 rounded-full shadow-2xl active:scale-90 transition-all"
+            className="flex items-center gap-3 bg-gradient-to-br from-primary to-primary-container text-on-primary px-5 py-3 rounded-full shadow-2xl active:scale-90 transition-all"
           >
-            <span className="material-symbols-outlined text-2xl material-symbols-fill">report</span>
-            <span className="font-bold font-headline tracking-wide">Report</span>
+            <span className="material-symbols-outlined text-xl material-symbols-fill">report</span>
+            <span className="font-bold font-headline tracking-wide text-sm">Report</span>
           </button>
         </div>
 
@@ -589,7 +589,7 @@ const HomeScreen = ({ onNavigate, setDestination, destination, onProfileClick, o
       </div>
 
       {/* Footer Intelligence Section */}
-      <div className="bg-surface-container-low/90 backdrop-blur-3xl border-t border-outline-variant/10 p-6 pb-32 z-50 overflow-y-auto max-h-[40vh]">
+      <div className="bg-surface-container-low/90 backdrop-blur-3xl border-t border-outline-variant/10 p-6 pb-24 z-50 overflow-y-auto max-h-[40vh]">
         <div className="flex flex-col gap-6 max-w-xl mx-auto">
           <div className="flex items-center justify-between">
             <h3 className="font-headline font-black text-on-surface uppercase tracking-widest text-[10px]">Traffic Intelligence</h3>
@@ -733,7 +733,7 @@ const RouteSelectionScreen = ({ onNavigate, destination, onProfileClick, onNotif
   }, [selectedRouteId, destination]);
 
   return (
-    <div className="min-h-screen bg-surface pb-32">
+    <div className="min-h-screen bg-surface pb-24">
       <TopBar 
         title="Vuba Route" 
         onProfileClick={onProfileClick}
@@ -923,7 +923,7 @@ const ReportScreen = ({ onNavigate, onProfileClick, onNotificationClick }: { onN
   };
 
   return (
-    <div className="min-h-screen bg-surface pb-32">
+    <div className="min-h-screen bg-surface pb-24">
       <TopBar 
         title="Vuba Route" 
         onProfileClick={onProfileClick}
@@ -1016,7 +1016,7 @@ const ReportScreen = ({ onNavigate, onProfileClick, onNotificationClick }: { onN
 
 const SettingsScreen = ({ onNavigate, isDarkMode, onToggleTheme, onProfileClick, onNotificationClick }: { onNavigate: (s: Screen) => void; isDarkMode: boolean; onToggleTheme: () => void; onProfileClick?: () => void; onNotificationClick?: () => void }) => {
   return (
-    <div className="min-h-screen bg-surface pb-32">
+    <div className="min-h-screen bg-surface pb-24">
       <TopBar 
         title="Vuba Route" 
         onProfileClick={onProfileClick}
@@ -1103,7 +1103,7 @@ const SettingsScreen = ({ onNavigate, isDarkMode, onToggleTheme, onProfileClick,
 
 const InsightsScreen = ({ onNavigate, onProfileClick, onNotificationClick }: { onNavigate: (s: Screen) => void; onProfileClick?: () => void; onNotificationClick?: () => void }) => {
   return (
-    <div className="min-h-screen bg-surface pb-32">
+    <div className="min-h-screen bg-surface pb-24">
       <TopBar 
         title="Vuba Route Insights" 
         onProfileClick={onProfileClick}
