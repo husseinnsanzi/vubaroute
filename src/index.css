@@ -1,0 +1,112 @@
+@import "tailwindcss";
+@import "leaflet/dist/leaflet.css";
+
+@theme {
+  --font-headline: "Space Grotesk", sans-serif;
+  --font-body: "Plus Jakarta Sans", sans-serif;
+
+  --color-surface: var(--surface);
+  --color-surface-container: var(--surface-container);
+  --color-surface-container-low: var(--surface-container-low);
+  --color-surface-container-high: var(--surface-container-high);
+  --color-surface-container-highest: var(--surface-container-highest);
+  --color-surface-variant: var(--surface-variant);
+  --color-surface-bright: var(--surface-bright);
+  
+  --color-primary: var(--primary);
+  --color-primary-container: var(--primary-container);
+  --color-on-primary: var(--on-primary);
+  
+  --color-secondary: var(--secondary);
+  --color-secondary-container: var(--secondary-container);
+  
+  --color-tertiary: var(--tertiary);
+  --color-tertiary-container: var(--tertiary-container);
+  
+  --color-on-surface: var(--on-surface);
+  --color-on-surface-variant: var(--on-surface-variant);
+  
+  --color-outline: var(--outline);
+  --color-outline-variant: var(--outline-variant);
+}
+
+:root {
+  --surface: #0b1326;
+  --surface-container: #171f33;
+  --surface-container-low: #131b2e;
+  --surface-container-high: #222a3d;
+  --surface-container-highest: #2d3449;
+  --surface-variant: #2d3449;
+  --surface-bright: #31394d;
+  
+  --primary: #b6c4ff;
+  --primary-container: #004be0;
+  --on-primary: #002780;
+  
+  --secondary: #78dc77;
+  --secondary-container: #00761f;
+  
+  --tertiary: #ffb4a9;
+  --tertiary-container: #b61110;
+  
+  --on-surface: #dae2fd;
+  --on-surface-variant: #c3c6d6;
+  
+  --outline: #8d90a0;
+  --outline-variant: #434654;
+}
+
+.light {
+  --surface: #ffffff;
+  --surface-container: #f0f2f5;
+  --surface-container-low: #f8f9fb;
+  --surface-container-high: #e1e2e5;
+  --surface-container-highest: #d1d2d5;
+  --surface-variant: #e1e2e5;
+  --surface-bright: #ffffff;
+  
+  --primary: #004be0;
+  --primary-container: #dce1ff;
+  --on-primary: #ffffff;
+  
+  --secondary: #006e1c;
+  --secondary-container: #94f990;
+  
+  --tertiary: #ba1a1a;
+  --tertiary-container: #ffdad6;
+  
+  --on-surface: #1a1c1e;
+  --on-surface-variant: #44474e;
+  
+  --outline: #74777f;
+  --outline-variant: #c4c6cf;
+}
+
+@layer base {
+  body {
+    @apply bg-surface text-on-surface font-body selection:bg-primary/30;
+    -webkit-tap-highlight-color: transparent;
+  }
+}
+
+@layer components {
+  .glass-panel {
+    @apply bg-surface-variant/40 backdrop-blur-xl border border-outline-variant/20;
+  }
+  
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
+
+.material-symbols-outlined {
+  font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+}
+
+.material-symbols-fill {
+  font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+}

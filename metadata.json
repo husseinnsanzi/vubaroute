@@ -1,0 +1,5 @@
+{
+  "name": "Vuba Route",
+  "description": "AI-powered smart traffic and navigation system for optimized urban transportation in Kigali.",
+  "requestFramePermissions": ["geolocation", "microphone"]
+}
